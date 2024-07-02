@@ -1,4 +1,5 @@
 // Import required modules
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -14,7 +15,7 @@ app.get('/', (req, res) => {
 });
 
 // MongoDB connection string
-const mongoURI = 'mongodb+srv://any:mediv021016@cluster0.qirtaq0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const mongoURI = process.env.DATABASE_URL;
 
 // Connect to MongoDB
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
